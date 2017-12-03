@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hangman</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1 class="text-center">Hangman <span class=""><h5>by Alpine Inc</h5></span></h1>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" id="game-main">
+                <div class="card">
+                    <div class="card-block" id="display-board">
+                        <h4 class="card-title">Display Board</h4>
+                    </div>
+                    <div class="card-block" id="game-area">
+                        <h4 class="card-title">Game Area</h4>
+                    </div>
+                    <div class="card-block" id="score-card">
+                        <h4 class="card-title">Score</h4>
+                    </div>
+                    <div class="card-block" id="pending-picks-allowed">
+                        <h4 class="card-title">Choice remaining</h4>
+                    </div>
+                    <div class="card-block" id="picked-list">
+                        <h4 class="card-title">Guessed alphabets</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" id="game-media">
+                <div class="card">
+                    <img class="card-img-top" data-src="" alt="Card image cap">
+                    <div class="card-img-overlay">
+                        //timier
+                    </div>
+                    <div class="card-block">
+                        <audio controls>
+                            <source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg" />
+                            <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
+                            <a href="http://www.w3schools.com/html/horse.mp3">horse</a>
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+    <script type="text/javascript" src="assets/javascript/game-main.js"></script>
+</body>
+
+</html>
