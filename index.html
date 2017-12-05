@@ -8,15 +8,13 @@
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/index.css">
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 </head>
 
 <body>
     <header>
-        <h1 class="text-center">Hangman <span class=""><h5>by Alpine Inc</h5></span></h1>
+        <h1 class="text-center">Hangman <span class=""><h6>by Alpine Inc</h6></span></h1>
     </header>
-    <div class="container">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-md-6" id="game-main">
                 <div class="card">
@@ -39,23 +37,24 @@
             </div>
             <div class="col-md-6" id="game-media">
                 <div class="card">
-                    <img class="card-img-top" data-src="" alt="Card image cap">
+                    <img class="card-img-top" id="artist-img" data-src="" alt="Card image cap">
                     <div class="card-img-overlay">
                         //timier
                     </div>
                     <div class="card-block">
                         <audio controls>
-                            <source src="http://www.w3schools.com/html/horse.ogg" type="audio/ogg" />
-                            <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" />
-                            <a href="http://www.w3schools.com/html/horse.mp3">horse</a>
+                            <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" id="audio-source" />
                         </audio>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer></footer>
+    <footer>
+        <div class="fixed-bottom div-footer bg-dark">&copy; Copyright 2017 Ravish Rao</div>
+    </footer>
     <script type="text/javascript" src="assets/javascript/game-main.js"></script>
+    <script type="text/javascript" src="assets/javascript/game-wrapper.js"></script>
 </body>
 
 </html>
