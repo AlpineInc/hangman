@@ -17,36 +17,51 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6" id="game-main">
-                <div class="card">
-                    <div class="card-block" id="display-board">
-                        <h4 class="card-title">Display Board</h4>
+                <div class="row">
+                    <div class="card-group w-100">
+                        <div class="card border-dark col-xs-12 col-sm-8 col-md-8 col-lg-8 p-0">
+                            <div class="card-body text-dark">
+                                <div class="card-title h4" id="display-board"></div>
+                            </div>
+                        </div>
+                        <div class="card border-dark col-xs-12 col-sm-4 col-md-4 col-lg-4 p-0">
+                            <div class="card-header text-center h4">Score</div>
+                            <div class="card-body text-dark">
+                                <div class="card-title text-center h1" id="score-card">12</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-block" id="game-area">
-                        <h4 class="card-title">Game Area</h4>
-                    </div>
-                    <div class="card-block" id="score-card">
-                        <h4 class="card-title">Score</h4>
-                    </div>
-                    <div class="card-block" id="pending-picks-allowed">
-                        <h4 class="card-title">Choice remaining</h4>
-                    </div>
-                    <div class="card-block" id="picked-list">
-                        <h4 class="card-title">Guessed alphabets</h4>
+                </div>
+                <div class="row mt-3">
+                    <div class="card-group w-100">
+                        <div class="card border-dark p-0">
+                            <div class="card-header text-center h4">Guess the music artist</div>
+                            <div class="card-body text-dark">
+                                <h1 class="card-title text-center" id="game-area"></h1>
+                                <div class="text-dark col-5 float-left mt-3 pr-3">
+                                    <div class="text-center h5 font-weight-bold">Gusses Allowed</div>
+                                    <div class="text-center h3 border-right-1 bo" id="pending-picks-allowed"></div>
+                                </div>
+                                <div class="text-dark col-7 float-left mt-3 p-0">
+                                    <div class="text-center h5 font-weight-bold">Gussesed Letters</div>
+                                    <div class="text-center h5" id="picked-list"></div>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary w-50 align-self-center mb-3" id="a-reset">Reset Game</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6" id="game-media">
                 <div class="card">
                     <img class="card-img-top" id="artist-img" data-src="" alt="Card image cap">
-                    <div class="card-img-overlay">
-                        //timier
-                    </div>
-                    <div class="card-block">
-                        <audio controls>
-                            <source src="http://www.w3schools.com/html/horse.mp3" type="audio/mpeg" id="audio-source" />
-                        </audio>
+                    <div class="card-img-overlay p-0 d-flex align-items-center h-100">
+                        <p class="justify-content-center m-auto"><span id="mins">00</span>:<span id="secs">00</span></p>
                     </div>
                 </div>
+                <audio class="d-flex align-items-center" controls id="audio">
+                    <source src="" type="audio/mp3" id="audio-source" />
+                </audio>
             </div>
         </div>
     </div>

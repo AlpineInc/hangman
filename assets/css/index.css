@@ -11,3 +11,11 @@
     font-weight: bold;
     color: white;
 }
+
+#game-media{
+	margin-bottom: 80px;
+}
+
+#game-area{
+	letter-spacing: 5px;
+}

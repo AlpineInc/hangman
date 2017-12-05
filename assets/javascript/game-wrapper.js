@@ -3,61 +3,61 @@ var easyArtistList = [{
     "name": "Whitney Houston",
     "image": "assets/images/whitney-houston.png",
     "title": "I Will Always Love You",
-    "titleMusicUrl": "https://www.youtube.com/watch?v=A_MjCqQoLLA&list=PL9-cZf_sidpnrpRDlmAiLJaFtzHpD7aFY"
+    "titleMusicUrl": "assets/media/captainplanet24.mp3"
 },
 {
     "name": "Pink Floyd",
     "image": "assets/images/pink-floyd.png",
     "title": "",
-    "titleMusicUrl": "https://www.youtube.com/watch?v=A_MjCqQoLLA&list=PL9-cZf_sidpnrpRDlmAiLJaFtzHpD7aFY"
+    "titleMusicUrl": "assets/media/captainplanet24.mp3"
 },
 {
     "name": "Celine Dion",
     "image": "assets/images/celine-dion.png",
     "title": "",
-    "titleMusicUrl": "https://www.youtube.com/watch?v=A_MjCqQoLLA&list=PL9-cZf_sidpnrpRDlmAiLJaFtzHpD7aFY"
+    "titleMusicUrl": "assets/media/captainplanet24.mp3"
 },
 {
     "name": "Mariah Carey",
     "image": "assets/images/mariah-carey.png",
     "title": "",
-    "titleMusicUrl": "https://www.youtube.com/watch?v=A_MjCqQoLLA&list=PL9-cZf_sidpnrpRDlmAiLJaFtzHpD7aFY"
+    "titleMusicUrl": "assets/media/captainplanet24.mp3"
 },
 {
     "name": "Led Zeppelin",
     "image": "assets/images/led-zeppelin.png",
     "title": "",
-    "titleMusicUrl": "https://www.youtube.com/watch?v=A_MjCqQoLLA&list=PL9-cZf_sidpnrpRDlmAiLJaFtzHpD7aFY"
+    "titleMusicUrl": "assets/media/captainplanet24.mp3"
 },
 {
     "name": "Elton John",
     "image": "assets/images/elton-john.png",
     "title": "",
-    "titleMusicUrl": "https://www.youtube.com/watch?v=A_MjCqQoLLA&list=PL9-cZf_sidpnrpRDlmAiLJaFtzHpD7aFY"
+    "titleMusicUrl": "assets/media/captainplanet24.mp3"
 },
 {
     "name": "Madonna",
     "image": "assets/images/madonna.png",
     "title": "",
-    "titleMusicUrl": "https://www.youtube.com/watch?v=A_MjCqQoLLA&list=PL9-cZf_sidpnrpRDlmAiLJaFtzHpD7aFY"
+    "titleMusicUrl": "assets/media/captainplanet24.mp3"
 },
 {
     "name": "Michael Jackson",
     "image": "assets/images/michael-jackson.png",
     "title": "",
-    "titleMusicUrl": "https://www.youtube.com/watch?v=A_MjCqQoLLA&list=PL9-cZf_sidpnrpRDlmAiLJaFtzHpD7aFY"
+    "titleMusicUrl": "assets/media/captainplanet24.mp3"
 },
 {
     "name": "Elvis Presley",
     "image": "assets/images/elvis-presley.png",
     "title": "",
-    "titleMusicUrl": "https://www.youtube.com/watch?v=A_MjCqQoLLA&list=PL9-cZf_sidpnrpRDlmAiLJaFtzHpD7aFY"
+    "titleMusicUrl": "assets/media/captainplanet24.mp3"
 },
 {
     "name": "The Beatles",
     "image": "assets/images/the-beatles.png",
     "title": "",
-    "titleMusicUrl": "https://www.youtube.com/watch?v=A_MjCqQoLLA&list=PL9-cZf_sidpnrpRDlmAiLJaFtzHpD7aFY"
+    "titleMusicUrl": "assets/media/captainplanet24.mp3"
 }];
 
 //Number of allowed guesses per game
@@ -70,3 +70,8 @@ game.onLoad(easyArtistList, maxPlayerGuessCount);
 document.onkeyup = function(event){
 	game.handleKeyPressEvent(event);
 } 
+
+
+document.getElementById("a-reset").onclick = function(){
+	game.newGame();
+}

@@ -1,11 +1,3 @@
-//TODO:
-//only accepts alphabets as valid user guess entry
-//Draw image when user wins
-//Play music when user wins
-//add timer
-//add default image
-//add default music while playing
-
 //The main game object
 var game = {
     activeGameStatus: false,
@@ -17,6 +9,7 @@ var game = {
     playerMaxAlphaGuessCount: null,
     playerGuessedAlphaCount: 0,
     playerGuessedAlphaList: null,
+    timer: null,
     onLoad: function(artistList, playerMaxAlphaGuessCount) {
         this.stopMusic();
         this.showArtistImage(null);
@@ -52,10 +45,12 @@ var game = {
                     this.drawScore();
                     this.showArtistImage();
                     this.playMusic();
+                    this.stopTimer();
                 } else {
                     if (this.playerGuessedAlphaCount === this.playerMaxAlphaGuessCount) {
                         this.setActiveGameStatus(false);
-                        this.drawDisplayBoard("Game over. You loose. The artist/band name is - " + this.artistList[this.activeArtistIndex].name + ". Press any key to start a new game...");
+                        this.drawDisplayBoard("Game over. You lost. The artist/band name is - " + this.artistList[this.activeArtistIndex].name + ". Press any key to start a new game...");
+                        this.stopTimer();
                     } else if (evaluateKeyStatus === true) {
                         this.drawDisplayBoard("Good guess. Try another alphabet...");
                     } else {
@@ -72,6 +67,7 @@ var game = {
         this.setActiveGameStatus(true);
         this.incrementGameCount();
         this.stopMusic();
+        this.stopTimer();
         this.showArtistImage(null);
         this.drawDisplayBoard("Enter an alphabet...");
         this.drawScore();
@@ -82,6 +78,7 @@ var game = {
         this.drawPlayerGuessAlphaCount();
         this.initializePlayerGuessedAlphaList();
         this.drawPlayerGuessAlphaList();
+        this.startTimer();
     },
     initializeArtistList: function(artistList) {
         //The below jquery method can be used to load a remote json file accessed over HTTP. For future use when using Heroku    
@@ -99,6 +96,37 @@ var game = {
             return json;
         })();*/
         this.artistList = artistList;
+    },
+    startTimer: function() {
+        var mins = 00;
+        var secs = 00;
+        var appendSecs = document.getElementById("secs");
+        var appendMins = document.getElementById("mins");
+        
+        this.timer = setInterval(function() {
+            secs++;
+            if (secs < 9) {
+                appendSecs.innerHTML = "0" + secs;
+            } else {
+                appendSecs.innerHTML = secs;
+            }
+
+            if (secs >= 60) {
+                mins++;
+                if (mins > 9) {
+                appendMins.innerHTML = mins;
+            	} else{
+                appendMins.innerHTML = "0" + mins;
+                }
+                secs = 0;
+                appendSecs.innerHTML = "0" + 0;
+            }
+
+            
+        }, 1000);
+    },
+    stopTimer: function(){
+        clearInterval(this.timer);
     },
     evaluateKey: function(key) {
         var evaluateKeyStatus = false;
@@ -128,7 +156,7 @@ var game = {
         this.playerGuessedAlphaCount++;
     },
     drawPlayerGuessAlphaCount: function() {
-        document.getElementById("pending-picks-allowed").textContent = "Remaining number of guesses allowed: " + (this.playerMaxAlphaGuessCount - this.playerGuessedAlphaCount);
+        document.getElementById("pending-picks-allowed").textContent = (this.playerMaxAlphaGuessCount - this.playerGuessedAlphaCount);
     },
     initializePlayerGuessedAlphaList: function() {
         this.playerGuessedAlphaList = "";
@@ -141,7 +169,7 @@ var game = {
         }
     },
     drawPlayerGuessAlphaList: function() {
-        document.getElementById("picked-list").textContent = "Alphabets already guessed: " + this.playerGuessedAlphaList;
+        document.getElementById("picked-list").textContent = this.playerGuessedAlphaList;
     },
     drawGameArea: function() {
         document.getElementById("game-area").textContent = this.playerGuessedWord;
@@ -160,10 +188,17 @@ var game = {
         this.activeArtistIndex = Math.floor(Math.random() * this.artistList.length);
     },
     playMusic: function(artist) {
+        console.log(this.artistList[this.activeArtistIndex].titleMusicUrl)
         document.getElementById("audio-source").src = this.artistList[this.activeArtistIndex].titleMusicUrl;
+        document.getElementById("audio").load();
+        document.getElementById("audio").play();
+
     },
     stopMusic: function() {
+        document.getElementById("audio").pause();
         document.getElementById("audio-source").src = "";
+        document.getElementById("audio").load();
+
     },
     showArtistImage: function(artist) {
         if (artist === null) {
@@ -183,7 +218,7 @@ var game = {
         this.score++;
     },
     drawScore: function() {
-        document.getElementById("score-card").textContent = "Score: " + this.score;
+        document.getElementById("score-card").textContent = this.score;
     },
     setActiveGameStatus: function(activeStatus) {
         this.activeGameStatus = activeStatus;
