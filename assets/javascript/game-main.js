@@ -102,7 +102,9 @@ var game = {
         var secs = 00;
         var appendSecs = document.getElementById("secs");
         var appendMins = document.getElementById("mins");
-        
+        appendMins.innerHTML = "00";
+        appendSecs.innerHTML = "00";
+
         this.timer = setInterval(function() {
             secs++;
             if (secs < 9) {
@@ -180,7 +182,7 @@ var game = {
             if (this.artistList[this.activeArtistIndex].name.charAt(i) === " ") {
                 this.playerGuessedWord = this.playerGuessedWord + " ";
             } else {
-                this.playerGuessedWord = this.playerGuessedWord + "X";
+                this.playerGuessedWord = this.playerGuessedWord + "_";
             }
         }
     },
